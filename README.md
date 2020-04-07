@@ -55,7 +55,7 @@ jobs:
       - run: exit 0
       - name: Slack Success
         if: always()
-        uses: ./
+        uses: kpritam/slack-job-status-action@v1
         with:
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -68,7 +68,7 @@ jobs:
       - run: exit 1
       - name: Slack Failure
         if: always()
-        uses: ./
+        uses: kpritam/slack-job-status-action@v1
         with:
           job-status: ${{ job.status }}
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
