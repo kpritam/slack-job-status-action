@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  success-notifaction:
+  success-notification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
           channel: github-actions-test
 
-  failure-notifaction:
+  failure-notification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

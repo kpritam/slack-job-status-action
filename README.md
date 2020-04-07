@@ -7,7 +7,7 @@ Possible values assinged to job status are follows:
 
 1. Success
 1. Failure
-1. Cancel
+1. Cancelled
 
 This action sends message using [Slack bot tokens](https://api.slack.com/docs/token-types).
 
@@ -35,9 +35,9 @@ This action sends message using [Slack bot tokens](https://api.slack.com/docs/to
 
 Here's an example of a workflow which has two jobs:
 
-1. `success-notifaction`: Sends job succeeded message to `github-actions-test` slack channel
+1. `success-notification`: Sends job succeeded message to `github-actions-test` slack channel
 
-1. `failure-notifaction`: Sends job failed message to `github-actions-test` slack channel
+1. `failure-notification`: Sends job failed message to `github-actions-test` slack channel
 
 ```yaml
 name: Test
@@ -48,7 +48,7 @@ on:
       - master
 
 jobs:
-  success-notifaction:
+  success-notification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -61,7 +61,7 @@ jobs:
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
           channel: github-actions-test
 
-  failure-notifaction:
+  failure-notification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -75,3 +75,11 @@ jobs:
           channel: github-actions-test
 
 ```
+
+Slack message for build success or failure would look like this:
+
+<img src="docs/slack-success-failure-example.png">
+
+## Slack Bot Setup
+
+This action is inspired from [slack-action](https://github.com/abinoda/slack-action), follow instruction [here](https://github.com/abinoda/slack-action#setup) for setting up slack bot.
