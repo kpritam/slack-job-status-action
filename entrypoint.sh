@@ -15,7 +15,7 @@ RUN_ID=$GITHUB_RUN_ID
 slackMsg() {
   title=$1
   color=$2
-  msg="{\"channel\":\"$CHANNEL\", \"attachments\": [ { \"title\":\"$title\", \"text\": \"[ $REPO_NAME ] : [ $WORKFLOW ] : [ $BRANCH ] \n https://github.com/$REPOSITORY/actions/runs/$RUN_ID\", \"color\": \"$color\" } ]}"
+  msg="{\"channel\":\"$CHANNEL\", \"attachments\": [ { \"title\":\"$title [ $REPO_NAME ] : [ $WORKFLOW ] : [ $BRANCH ]\", \"text\": \"https://github.com/$REPOSITORY/actions/runs/$RUN_ID\", \"color\": \"$color\" } ]}"
 }
 
 if [ "$JOB_STATUS" = 'Success' ]; then
