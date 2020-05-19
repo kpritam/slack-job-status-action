@@ -8,7 +8,7 @@ if [[ $# -ne 2 ]]; then
 fi
 
 MINOR_VERSION=$1
-MAJOR_VERSION=$1
+MAJOR_VERSION=$2
 
 echo "Tagging MINOR_VERSION: $MINOR_VERSION"
 git tag "$MINOR_VERSION"
