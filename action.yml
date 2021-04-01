@@ -1,6 +1,6 @@
 # action.yml
 name: "Post Workflow Status To Slack"
-description: "Post workflows Succes/Failure/Cancel jonb status to Slack using bot"
+description: "Post workflows Success/Failure/Cancel job status to Slack using bot"
 author: "Pritam Kadam"
 
 inputs:
@@ -13,6 +13,9 @@ inputs:
   channel:
     description: "Slack channel where job status message will be posted"
     required: true
+  extra-args:
+    description: "Comma separated extra arguments passed to slack post API as it, refer https://api.slack.com/methods/chat.postMessage"
+    required: false
 
 runs:
   using: "docker"
@@ -21,6 +24,7 @@ runs:
     - ${{ inputs.job-status }}
     - ${{ inputs.slack-bot-token }}
     - ${{ inputs.channel }}
+    - ${{ inputs.extra-args }}
 
 branding:
   icon: "activity"
